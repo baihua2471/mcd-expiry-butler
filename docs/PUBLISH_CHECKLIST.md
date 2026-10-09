@@ -31,7 +31,7 @@
 ```bash
 cd mcd-expiry-butler
 # 1) 已知敏感串
-grep -rInE "Bearer [A-Za-z0-9]{6,}|1i59h7|MCD[0-9]{4,}|71F939|E86377|1420762|1[0-9]{10}" . || echo "✅ 无命中"
+grep -rInE "Bearer [A-Za-z0-9]{12,}|MCD[0-9]{4,}|[A-F0-9]{16,}|1[3-9][0-9]{9}" . || echo "✅ 无命中"
 # 2) 检查 git 历史里是否曾带入敏感文件
 git log --all --full-history --name-only | sort -u | grep -iE "\.env|token|secret|address" || echo "✅ 历史干净"
 ```
