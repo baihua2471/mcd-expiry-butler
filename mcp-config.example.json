@@ -1,0 +1,14 @@
+{
+  "_comment": "脱敏示例：Token 只允许通过环境变量占位符表达。WorkBuddy 当前不会自动展开 ${VAR}，请按 README「在 WorkBuddy 中配置」一节手工替换为你的真实 Token，并切勿把替换后的文件提交到仓库。",
+  "mcpServers": {
+    "mcd-mcp": {
+      "type": "streamableHttp",
+      "url": "https://mcp.mcd.cn/mcp-servers/mcd-mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCD_MCP_TOKEN}"
+      },
+      "timeout": 60000,
+      "disabled": false
+    }
+  }
+}

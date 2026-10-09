@@ -1,0 +1,111 @@
+{
+  "_comment": "演示模式样例数据：结构对齐真实 MCP 返回，但门店名、券ID/券码、商品均为示例值，不代表任何真实账户权益。",
+  "mode": "demo",
+  "query_time": "2026-10-09 17:40:00",
+  "window_days": 7,
+  "budget_yuan": 30.0,
+  "max_plans": 2,
+  "need": {
+    "用餐次数": "本周 1 次",
+    "偏好": "不吃辣，能当一顿正餐"
+  },
+  "store": {
+    "store_code": "0000000",
+    "store_name": "示例门店（演示数据）",
+    "channel": "到店自取"
+  },
+  "coupons": [
+    {
+      "title": "麦旋风任选",
+      "coupon_id": "DEMO-COUPON-ID-0001",
+      "coupon_code": "DEMO0000000001",
+      "valid_from": "2026-10-05 10:30:00",
+      "valid_to": "2026-10-09 23:59:59",
+      "channel": "到店自取",
+      "products": [
+        {"product_code": "9900014239", "product_name": "麦旋风任选1"}
+      ],
+      "price": {
+        "status": "verified",
+        "payable_fen": 990,
+        "original_fen": 1400,
+        "discount_fen": 410,
+        "delivery_fen": 0,
+        "packing_fen": 0
+      },
+      "source": "store"
+    },
+    {
+      "title": "薯薯任选",
+      "coupon_id": "DEMO-COUPON-ID-0002",
+      "coupon_code": "DEMO0000000002",
+      "valid_from": "2026-10-05 10:30:00",
+      "valid_to": "2026-10-09 23:59:59",
+      "channel": "到店自取",
+      "products": [
+        {"product_code": "9900016370", "product_name": "薯薯任选"}
+      ],
+      "price": {
+        "status": "verified",
+        "payable_fen": 990,
+        "original_fen": 1400,
+        "discount_fen": 410,
+        "delivery_fen": 0,
+        "packing_fen": 0
+      },
+      "source": "store"
+    },
+    {
+      "title": "9.9元早餐两件套（示例·已过期）",
+      "coupon_id": "DEMO-COUPON-ID-0003",
+      "coupon_code": "DEMO0000000003",
+      "valid_from": "2026-09-20 05:00:00",
+      "valid_to": "2026-09-30 10:29:00",
+      "channel": "到店自取",
+      "products": [
+        {"product_code": "9900013304", "product_name": "人气经典随心配"}
+      ],
+      "price": {"status": "missing"},
+      "source": "wallet"
+    },
+    {
+      "title": "外送专享套餐券（示例·渠道不匹配）",
+      "coupon_id": "DEMO-COUPON-ID-0004",
+      "coupon_code": "DEMO0000000004",
+      "valid_from": "2026-10-01 00:00:00",
+      "valid_to": "2026-10-20 23:59:59",
+      "channel": "外送",
+      "products": [
+        {"product_code": "9900004064", "product_name": "精选单人餐三件套"}
+      ],
+      "price": {"status": "missing"},
+      "source": "wallet"
+    },
+    {
+      "title": "未提供有效期的示例券",
+      "coupon_id": "DEMO-COUPON-ID-0005",
+      "coupon_code": "DEMO0000000005",
+      "valid_from": null,
+      "valid_to": null,
+      "channel": null,
+      "products": [
+        {"product_code": "521951", "product_name": "灰焰圆筒"}
+      ],
+      "price": {"status": "missing"},
+      "source": "wallet"
+    }
+  ],
+  "menu": [
+    {"code": "521951", "name": "灰焰圆筒", "current_price": "5", "original_price": "5"},
+    {"code": "9900013304", "name": "人气经典随心配", "current_price": "14.9", "original_price": "14.9"},
+    {"code": "9900005449", "name": "吉士汉堡包套餐", "current_price": "26", "original_price": "38.5"},
+    {"code": "9900015602", "name": "大堡口福三件套", "current_price": "22.9", "original_price": "47"}
+  ],
+  "points": {
+    "available": 0,
+    "expiring_this_month": 0,
+    "expiring_next_month": 0,
+    "expire_date": null
+  },
+  "mall_products": []
+}

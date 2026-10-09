@@ -1,0 +1,179 @@
+{
+  "mode": "demo",
+  "query_time": "2026-10-09 17:40:00",
+  "budget": 30.0,
+  "need": {
+    "用餐次数": "本周 1 次",
+    "偏好": "不吃辣，能当一顿正餐"
+  },
+  "store": {
+    "store_code": "0000000",
+    "store_name": "示例门店（演示数据）",
+    "channel": "到店自取"
+  },
+  "window_days": 7,
+  "rights": [
+    {
+      "title": "麦旋风任选",
+      "valid_to": "2026-10-09 23:59:59",
+      "expiry_status": "expiring",
+      "days_left": 0,
+      "channel": "到店自取",
+      "reasons": []
+    },
+    {
+      "title": "薯薯任选",
+      "valid_to": "2026-10-09 23:59:59",
+      "expiry_status": "expiring",
+      "days_left": 0,
+      "channel": "到店自取",
+      "reasons": []
+    },
+    {
+      "title": "未提供有效期的示例券",
+      "valid_to": null,
+      "expiry_status": "unknown",
+      "days_left": null,
+      "channel": null,
+      "reasons": [
+        "到期信息未提供（接口未返回有效期），不参与“快到期”排序",
+        "渠道未标注或未确认，需以门店维度可用券结果为准"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "title": "9.9元早餐两件套（示例·已过期）",
+      "valid_to": "2026-09-30 10:29:00",
+      "expiry_status": "expired",
+      "days_left": -9,
+      "channel": "到店自取",
+      "reasons": [
+        "已过期，不建议使用"
+      ]
+    },
+    {
+      "title": "外送专享套餐券（示例·渠道不匹配）",
+      "valid_to": "2026-10-20 23:59:59",
+      "expiry_status": "valid",
+      "days_left": 11,
+      "channel": "外送",
+      "reasons": [
+        "渠道不匹配：券标注「外送」，本次为「到店自取」"
+      ]
+    }
+  ],
+  "plans": [
+    {
+      "title": "用「薯薯任选」 · 薯薯任选",
+      "items": [
+        {
+          "product_code": "9900016370",
+          "name": "薯薯任选",
+          "quantity": 1
+        }
+      ],
+      "coupon": {
+        "title": "薯薯任选",
+        "coupon_id": "DEMO-COUPON-ID-0002",
+        "coupon_code": "DEMO0000000002",
+        "valid_to": "2026-10-09 23:59:59"
+      },
+      "price_status": "verified",
+      "payable_yuan": 9.9,
+      "original_yuan": 14.0,
+      "delivery_yuan": 0.0,
+      "packing_yuan": 0.0,
+      "savings": "省 4.10 元（相对本次试算原价）",
+      "within_budget": true,
+      "reasons": [
+        "快到期：0 天后失效（2026-10-09 23:59:59）",
+        "应付金额已通过官方价格试算（calculate-price）"
+      ],
+      "expiry_status": "expiring",
+      "days_left": 0,
+      "channel": "到店自取",
+      "store": "示例门店（演示数据）"
+    },
+    {
+      "title": "用「麦旋风任选」 · 麦旋风任选1",
+      "items": [
+        {
+          "product_code": "9900014239",
+          "name": "麦旋风任选1",
+          "quantity": 1
+        }
+      ],
+      "coupon": {
+        "title": "麦旋风任选",
+        "coupon_id": "DEMO-COUPON-ID-0001",
+        "coupon_code": "DEMO0000000001",
+        "valid_to": "2026-10-09 23:59:59"
+      },
+      "price_status": "verified",
+      "payable_yuan": 9.9,
+      "original_yuan": 14.0,
+      "delivery_yuan": 0.0,
+      "packing_yuan": 0.0,
+      "savings": "省 4.10 元（相对本次试算原价）",
+      "within_budget": true,
+      "reasons": [
+        "快到期：0 天后失效（2026-10-09 23:59:59）",
+        "应付金额已通过官方价格试算（calculate-price）"
+      ],
+      "expiry_status": "expiring",
+      "days_left": 0,
+      "channel": "到店自取",
+      "store": "示例门店（演示数据）"
+    }
+  ],
+  "over_budget": [
+    {
+      "title": "用「未提供有效期的示例券」 · 灰焰圆筒",
+      "items": [
+        {
+          "product_code": "521951",
+          "name": "灰焰圆筒",
+          "quantity": 1
+        }
+      ],
+      "coupon": {
+        "title": "未提供有效期的示例券",
+        "coupon_id": "DEMO-COUPON-ID-0005",
+        "coupon_code": "DEMO0000000005",
+        "valid_to": null
+      },
+      "price_status": "missing",
+      "payable_yuan": null,
+      "original_yuan": null,
+      "delivery_yuan": null,
+      "packing_yuan": null,
+      "savings": null,
+      "within_budget": null,
+      "reasons": [
+        "到期信息未提供，无法判断是否为快到期权益",
+        "到期信息未提供（接口未返回有效期），不参与“快到期”排序",
+        "渠道未标注或未确认，需以门店维度可用券结果为准",
+        "未做官方价格试算，金额为菜单现价，仅供参考"
+      ],
+      "expiry_status": "unknown",
+      "days_left": null,
+      "channel": "到店自取",
+      "store": "示例门店（演示数据）"
+    }
+  ],
+  "points": {
+    "available": 0,
+    "expiring_this_month": 0,
+    "expiring_next_month": 0,
+    "expire_date": null
+  },
+  "mall_products": [],
+  "unresolved": [
+    "存在未提供到期时间的权益，已标注“到期信息未提供”，未推断到期日",
+    "存在渠道未标注的权益，已按门店维度可用券结果处理，未假设跨渠道通用",
+    "积分账户未返回具体到期日期，仅展示“本月/下月将过期”数量"
+  ],
+  "recommend_no_use": false,
+  "no_use_reason": null
+}

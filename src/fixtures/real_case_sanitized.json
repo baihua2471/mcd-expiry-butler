@@ -1,0 +1,67 @@
+{
+  "_comment": "2026-10-09 真实只读联调的脱敏快照：券ID/券码/门店编号已替换为占位值，价格与有效期字段保留真实数值，用于复现结果页。原始响应不入仓库。",
+  "mode": "real",
+  "query_time": "2026-10-09 17:39:00",
+  "window_days": 7,
+  "budget_yuan": 30.0,
+  "max_plans": 2,
+  "need": {
+    "用餐次数": "验证用：本周 1 次",
+    "说明": "只读联调，不领券、不下单、不兑换"
+  },
+  "store": {
+    "store_code": "SANITIZED",
+    "store_name": "深圳科技园某门店（门店编号已脱敏）",
+    "channel": "到店自取"
+  },
+  "coupons": [
+    {
+      "title": "麦旋风任选",
+      "coupon_id": "SANITIZED-COUPON-ID-01",
+      "coupon_code": "SANITIZED-COUPON-CODE-01",
+      "valid_from": "2026-10-05 10:30:00",
+      "valid_to": "2026-10-09 23:59:59",
+      "channel": "到店自取",
+      "products": [
+        {"product_code": "9900014239", "product_name": "麦旋风任选1"}
+      ],
+      "price": {
+        "status": "verified",
+        "payable_fen": 990,
+        "original_fen": 1400,
+        "discount_fen": 410,
+        "delivery_fen": 0,
+        "packing_fen": 0
+      },
+      "source": "store"
+    },
+    {
+      "title": "薯薯任选",
+      "coupon_id": "SANITIZED-COUPON-ID-02",
+      "coupon_code": "SANITIZED-COUPON-CODE-02",
+      "valid_from": "2026-10-05 10:30:00",
+      "valid_to": "2026-10-09 23:59:59",
+      "channel": "到店自取",
+      "products": [
+        {"product_code": "9900016370", "product_name": "薯薯任选"}
+      ],
+      "price": {
+        "status": "missing",
+        "error": "本次联调未对该券执行试算，故不输出应付金额"
+      },
+      "source": "store"
+    }
+  ],
+  "menu": [
+    {"code": "9900014239", "name": "麦旋风任选1", "current_price": "14.0", "original_price": "14.0"},
+    {"code": "9900015602", "name": "大堡口福三件套", "current_price": "22.9", "original_price": "47"},
+    {"code": "9900005449", "name": "吉士汉堡包套餐", "current_price": "26", "original_price": "38.5"}
+  ],
+  "points": {
+    "available": 0,
+    "expiring_this_month": 0,
+    "expiring_next_month": 0,
+    "expire_date": null
+  },
+  "mall_products": []
+}

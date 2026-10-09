@@ -1,0 +1,32 @@
+# 环境与凭证
+.env
+.env.*
+*.token
+*token*.json
+!mcp-config.example.json
+.secrets
+
+# 真实账户数据与原始响应
+real_*/
+raw/
+raw_response*
+*raw*.json
+**/account_data/**
+**/original_response/**
+
+# 私人信息（地址、订单、门店收藏等）
+*address*.json
+delivery_address*
+my_address*
+private/
+
+# 本地日志与临时产物
+*.log
+logs/
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# 本地生成的结果页（可选择提交 demo_output 作为演示素材）
+/tmp/
