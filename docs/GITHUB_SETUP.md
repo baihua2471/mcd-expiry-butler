@@ -46,7 +46,15 @@ mcp    model-context-protocol    workbuddy    mcdonalds
 skill    ai-agent    coupon-reminder    python
 ```
 
-## 第 4 步：核对规则硬指标
+同一齿轮里把 **Website** 填上 `https://baihua2471.github.io/mcd-expiry-butler/`
+（发布方式见 `PAGES_DEPLOY.md`，推送后 5 分钟能上线）。
+
+## 第 4 步：发布在线演示页（GitHub Pages）
+
+按 `docs/PAGES_DEPLOY.md` 操作：Settings → Pages → Branch 选 `main` + Folder 选 **`/docs`**。
+上线后 README 顶部的演示链接即生效。
+
+## 第 5 步：核对规则硬指标
 
 - [ ] 仓库 **Public**
 - [ ] 根目录五个必交文件齐全：`README.md` `CONTEST_DECLARATION.md`
@@ -54,7 +62,7 @@ skill    ai-agent    coupon-reminder    python
 - [ ] `workbuddy.md` 是真实对话上下文（不是占位说明）
 - [ ] 创建时间在 2025-12-25 ~ 2026-10-25 之间
 
-## 第 5 步：提交报名 Issue
+## 第 6 步：提交报名 Issue
 
 - 目标仓库：https://github.com/M-China/mcd-developer-innovation-challenge
 - 用活动页提供的 **Issue 模板**提交

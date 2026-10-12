@@ -10,40 +10,62 @@
   --line:#e5e7eb; --accent:#2f6f4f; --accent-soft:#e8f3ec;
   --warn:#8a5a00; --warn-soft:#fdf3e2; --danger:#a33a3a; --danger-soft:#fbeaea;
 }
+/* ---------- 基线：手机优先（<=600px 视口为准设计） ---------- */
 *{box-sizing:border-box}
-body{margin:0;padding:20px 14px 48px;background:var(--bg);color:var(--ink);
-  font:15px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;padding:14px 12px calc(28px + env(safe-area-inset-bottom));
+  background:var(--bg);color:var(--ink);
+  font:16px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
 .wrap{max-width:760px;margin:0 auto}
-h1{font-size:21px;margin:0 0 4px}
-h2{font-size:16px;margin:26px 0 10px;padding-left:10px;border-left:3px solid var(--accent)}
+h1{font-size:20px;line-height:1.35;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:15px;margin:22px 0 10px;padding-left:9px;border-left:3px solid var(--accent)}
 .sub{color:var(--muted);font-size:13px;margin:0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
-.banner{border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:13px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.banner{border-radius:14px;padding:11px 13px;margin-bottom:14px;font-size:13px;font-weight:600;line-height:1.5}
 .banner.demo{background:var(--warn-soft);color:var(--warn);border:1px dashed #d9a441}
 .banner.real{background:var(--accent-soft);color:var(--accent)}
-.kv{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted)}
+.kv{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
 .kv b{color:var(--ink);font-weight:600}
+/* 手机上表格改为“标签 + 值”堆叠，保证字段一个不少 */
 table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--muted);font-weight:600}
+thead{display:none}
+tr{display:block;border-bottom:1px solid var(--line);padding:9px 0}
+tr:last-child{border-bottom:0}
+td{display:flex;gap:10px;padding:2px 0;border:0;vertical-align:top;word-break:break-word}
+td::before{content:attr(data-label);flex:0 0 68px;color:var(--muted);font-size:12px;line-height:1.9}
 .tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;background:#eef0f3;color:#444}
 .tag.soon{background:var(--warn-soft);color:var(--warn)}
 .tag.ok{background:var(--accent-soft);color:var(--accent)}
 .tag.bad{background:var(--danger-soft);color:var(--danger)}
-.plan{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;background:#fff}
-.plan .title{font-weight:700;margin-bottom:6px}
-.price{font-size:22px;font-weight:700;color:var(--accent)}
-.price small{font-size:12px;font-weight:500;color:var(--muted);margin-left:6px}
-ul{margin:6px 0 0;padding-left:20px}
-li{margin:3px 0}
+.plan{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;background:#fff}
+.plan .title{font-weight:700;margin-bottom:8px;font-size:15px}
+.price{font-size:24px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;margin:8px 0 6px}
+.price small{display:inline-block;font-size:12px;font-weight:500;color:var(--muted);margin-left:6px}
+ul{margin:6px 0 0;padding-left:19px}
+li{margin:4px 0}
 .none{background:var(--warn-soft);border:1px dashed #d9a441;color:var(--warn);
-  border-radius:12px;padding:14px;font-size:14px}
-.foot{color:var(--muted);font-size:12px;margin-top:26px;border-top:1px solid var(--line);padding-top:12px}
-@media (max-width:520px){
-  body{padding:14px 10px 36px}
-  .price{font-size:20px}
-  table{font-size:12px}
-  th:nth-child(3),td:nth-child(3){display:none}
+  border-radius:14px;padding:14px;font-size:14px;line-height:1.6}
+.foot{color:var(--muted);font-size:12px;margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
+/* ---------- 平板 / 桌面：恢复表格与横向排布 ---------- */
+@media (min-width:600px){
+  body{padding:22px 16px 48px;font-size:15px}
+  h1{font-size:22px}
+  h2{font-size:16px;margin:26px 0 10px}
+  .card{padding:16px}
+  .kv{flex-direction:row;flex-wrap:wrap;gap:8px 18px}
+  thead{display:table-header-group}
+  tr{display:table-row}
+  td{display:table-cell;border-bottom:1px solid var(--line);padding:8px 6px}
+  td::before{display:none}
+  th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);
+     color:var(--muted);font-weight:600;font-size:13px}
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#101418;--card:#181d23;--ink:#e6e9ee;--muted:#98a2b3;--line:#2a323c;
+        --accent:#6cc39a;--accent-soft:#14251d;--warn:#e0b964;--warn-soft:#2a2213;
+        --danger:#e08a8a;--danger-soft:#2b1717}
+  .tag{background:#232b34;color:#c8d0da}
+  body{color-scheme:dark}
 }
 </style>
 </head>
@@ -71,13 +93,13 @@ li{margin:3px 0}
   </div>
 
   <h2>权益清单</h2>
-  <div class="card"><table><thead><tr><th>权益</th><th>有效期至</th><th>适用商品</th><th>渠道</th><th>状态</th></tr></thead><tbody><tr><td><b>麦旋风任选</b></td><td>2026-10-09 23:59:59</td><td>麦旋风任选1</td><td>到店自取</td><td><span class="tag soon">快到期 · 0 天</span></td></tr><tr><td><b>薯薯任选</b></td><td>2026-10-09 23:59:59</td><td>薯薯任选</td><td>到店自取</td><td><span class="tag soon">快到期 · 0 天</span></td></tr><tr><td><b>未提供有效期的示例券</b></td><td><i>到期信息未提供</i></td><td>灰焰圆筒</td><td><i>未标注</i></td><td><span class="tag ">到期信息未提供</span></td></tr></tbody></table></div>
+  <div class="card"><table><thead><tr><th>权益</th><th>有效期至</th><th>适用商品</th><th>渠道</th><th>状态</th></tr></thead><tbody><tr><td data-label="权益"><b>麦旋风任选</b></td><td data-label="有效期至">2026-10-09 23:59:59</td><td data-label="适用商品">麦旋风任选1</td><td data-label="渠道">到店自取</td><td data-label="状态"><span class="tag soon">快到期 · 0 天</span></td></tr><tr><td data-label="权益"><b>薯薯任选</b></td><td data-label="有效期至">2026-10-09 23:59:59</td><td data-label="适用商品">薯薯任选</td><td data-label="渠道">到店自取</td><td data-label="状态"><span class="tag soon">快到期 · 0 天</span></td></tr><tr><td data-label="权益"><b>未提供有效期的示例券</b></td><td data-label="有效期至"><i>到期信息未提供</i></td><td data-label="适用商品">灰焰圆筒</td><td data-label="渠道"><i>未标注</i></td><td data-label="状态"><span class="tag ">到期信息未提供</span></td></tr></tbody></table></div>
 
   <h2>推荐方案</h2>
   <div class="plan"><div class="title">方案 1：用「薯薯任选」 · 薯薯任选</div><div class="kv"><span>内容：薯薯任选 ×1</span></div><div class="price">9.90 元<small>已验证（官方试算）</small></div><div class="kv"><span>原价 14.00 元 · 省 4.10 元（相对本次试算原价）</span></div><div class="kv"><span>渠道：到店自取 · 门店：示例门店（演示数据）</span></div><ul><li>快到期：0 天后失效（2026-10-09 23:59:59）</li><li>应付金额已通过官方价格试算（calculate-price）</li></ul></div><div class="plan"><div class="title">方案 2：用「麦旋风任选」 · 麦旋风任选1</div><div class="kv"><span>内容：麦旋风任选1 ×1</span></div><div class="price">9.90 元<small>已验证（官方试算）</small></div><div class="kv"><span>原价 14.00 元 · 省 4.10 元（相对本次试算原价）</span></div><div class="kv"><span>渠道：到店自取 · 门店：示例门店（演示数据）</span></div><ul><li>快到期：0 天后失效（2026-10-09 23:59:59）</li><li>应付金额已通过官方价格试算（calculate-price）</li></ul></div>
 
   <h2>不建议使用</h2>
-  <div class="card"><table><thead><tr><th>权益</th><th>有效期至</th><th>适用商品</th><th>渠道</th><th>状态</th></tr></thead><tbody><tr><td><b>9.9元早餐两件套（示例·已过期）</b></td><td>2026-09-30 10:29:00</td><td>人气经典随心配</td><td>到店自取</td><td><span class="tag bad">已过期</span></td></tr><tr><td><b>外送专享套餐券（示例·渠道不匹配）</b></td><td>2026-10-20 23:59:59</td><td>精选单人餐三件套</td><td>外送</td><td><span class="tag ok">有效期内</span></td></tr></tbody></table></div><div class="card"><ul><li><b>9.9元早餐两件套（示例·已过期）</b>：已过期，不建议使用</li><li><b>外送专享套餐券（示例·渠道不匹配）</b>：渠道不匹配：券标注「外送」，本次为「到店自取」</li></ul></div>
+  <div class="card"><table><thead><tr><th>权益</th><th>有效期至</th><th>适用商品</th><th>渠道</th><th>状态</th></tr></thead><tbody><tr><td data-label="权益"><b>9.9元早餐两件套（示例·已过期）</b></td><td data-label="有效期至">2026-09-30 10:29:00</td><td data-label="适用商品">人气经典随心配</td><td data-label="渠道">到店自取</td><td data-label="状态"><span class="tag bad">已过期</span></td></tr><tr><td data-label="权益"><b>外送专享套餐券（示例·渠道不匹配）</b></td><td data-label="有效期至">2026-10-20 23:59:59</td><td data-label="适用商品">精选单人餐三件套</td><td data-label="渠道">外送</td><td data-label="状态"><span class="tag ok">有效期内</span></td></tr></tbody></table></div><div class="card"><ul><li><b>9.9元早餐两件套（示例·已过期）</b>：已过期，不建议使用</li><li><b>外送专享套餐券（示例·渠道不匹配）</b>：渠道不匹配：券标注「外送」，本次为「到店自取」</li></ul></div>
 
   <h2>积分权益（与现金分开）</h2>
   <div class="card"><div class="kv"><span>可用积分：<b>0</b></span><span>本月将过期：<b>0</b></span><span>下月将过期：<b>0</b></span><span>具体到期日期：<b>到期信息未提供</b></span></div><p class="sub" style="margin-top:8px">未提供可兑换商品信息，因此不给出积分使用建议。</p><p class="sub" style="margin-top:8px">积分与现金分别展示，本工具不设定任何兑换比例。</p></div>

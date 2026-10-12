@@ -39,40 +39,62 @@ CSS = """
   --line:#e5e7eb; --accent:#2f6f4f; --accent-soft:#e8f3ec;
   --warn:#8a5a00; --warn-soft:#fdf3e2; --danger:#a33a3a; --danger-soft:#fbeaea;
 }
+/* ---------- 基线：手机优先（<=600px 视口为准设计） ---------- */
 *{box-sizing:border-box}
-body{margin:0;padding:20px 14px 48px;background:var(--bg);color:var(--ink);
-  font:15px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;padding:14px 12px calc(28px + env(safe-area-inset-bottom));
+  background:var(--bg);color:var(--ink);
+  font:16px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;}
 .wrap{max-width:760px;margin:0 auto}
-h1{font-size:21px;margin:0 0 4px}
-h2{font-size:16px;margin:26px 0 10px;padding-left:10px;border-left:3px solid var(--accent)}
+h1{font-size:20px;line-height:1.35;margin:0 0 6px;letter-spacing:-.01em}
+h2{font-size:15px;margin:22px 0 10px;padding-left:9px;border-left:3px solid var(--accent)}
 .sub{color:var(--muted);font-size:13px;margin:0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
-.banner{border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:13px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.banner{border-radius:14px;padding:11px 13px;margin-bottom:14px;font-size:13px;font-weight:600;line-height:1.5}
 .banner.demo{background:var(--warn-soft);color:var(--warn);border:1px dashed #d9a441}
 .banner.real{background:var(--accent-soft);color:var(--accent)}
-.kv{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted)}
+.kv{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
 .kv b{color:var(--ink);font-weight:600}
+/* 手机上表格改为“标签 + 值”堆叠，保证字段一个不少 */
 table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--muted);font-weight:600}
+thead{display:none}
+tr{display:block;border-bottom:1px solid var(--line);padding:9px 0}
+tr:last-child{border-bottom:0}
+td{display:flex;gap:10px;padding:2px 0;border:0;vertical-align:top;word-break:break-word}
+td::before{content:attr(data-label);flex:0 0 68px;color:var(--muted);font-size:12px;line-height:1.9}
 .tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;background:#eef0f3;color:#444}
 .tag.soon{background:var(--warn-soft);color:var(--warn)}
 .tag.ok{background:var(--accent-soft);color:var(--accent)}
 .tag.bad{background:var(--danger-soft);color:var(--danger)}
-.plan{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;background:#fff}
-.plan .title{font-weight:700;margin-bottom:6px}
-.price{font-size:22px;font-weight:700;color:var(--accent)}
-.price small{font-size:12px;font-weight:500;color:var(--muted);margin-left:6px}
-ul{margin:6px 0 0;padding-left:20px}
-li{margin:3px 0}
+.plan{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;background:#fff}
+.plan .title{font-weight:700;margin-bottom:8px;font-size:15px}
+.price{font-size:24px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;margin:8px 0 6px}
+.price small{display:inline-block;font-size:12px;font-weight:500;color:var(--muted);margin-left:6px}
+ul{margin:6px 0 0;padding-left:19px}
+li{margin:4px 0}
 .none{background:var(--warn-soft);border:1px dashed #d9a441;color:var(--warn);
-  border-radius:12px;padding:14px;font-size:14px}
-.foot{color:var(--muted);font-size:12px;margin-top:26px;border-top:1px solid var(--line);padding-top:12px}
-@media (max-width:520px){
-  body{padding:14px 10px 36px}
-  .price{font-size:20px}
-  table{font-size:12px}
-  th:nth-child(3),td:nth-child(3){display:none}
+  border-radius:14px;padding:14px;font-size:14px;line-height:1.6}
+.foot{color:var(--muted);font-size:12px;margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
+/* ---------- 平板 / 桌面：恢复表格与横向排布 ---------- */
+@media (min-width:600px){
+  body{padding:22px 16px 48px;font-size:15px}
+  h1{font-size:22px}
+  h2{font-size:16px;margin:26px 0 10px}
+  .card{padding:16px}
+  .kv{flex-direction:row;flex-wrap:wrap;gap:8px 18px}
+  thead{display:table-header-group}
+  tr{display:table-row}
+  td{display:table-cell;border-bottom:1px solid var(--line);padding:8px 6px}
+  td::before{display:none}
+  th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);
+     color:var(--muted);font-weight:600;font-size:13px}
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#101418;--card:#181d23;--ink:#e6e9ee;--muted:#98a2b3;--line:#2a323c;
+        --accent:#6cc39a;--accent-soft:#14251d;--warn:#e0b964;--warn-soft:#2a2213;
+        --danger:#e08a8a;--danger-soft:#2b1717}
+  .tag{background:#232b34;color:#c8d0da}
+  body{color-scheme:dark}
 }
 """
 
@@ -163,11 +185,11 @@ def _rights_table(items: List[Any], empty_text: str) -> str:
         ) or "接口未返回适用商品"
         rows.append(
             "<tr>"
-            f"<td><b>{_esc(c.title)}</b></td>"
-            f"<td>{_esc(c.valid_to) if c.valid_to else '<i>到期信息未提供</i>'}</td>"
-            f"<td>{_esc(products)}</td>"
-            f"<td>{_esc(c.channel) if c.channel else '<i>未标注</i>'}</td>"
-            f"<td>{_status_tag(s.status, s.days_left)}</td>"
+            f'<td data-label="权益"><b>{_esc(c.title)}</b></td>'
+            f'<td data-label="有效期至">{_esc(c.valid_to) if c.valid_to else "<i>到期信息未提供</i>"}</td>'
+            f'<td data-label="适用商品">{_esc(products)}</td>'
+            f'<td data-label="渠道">{_esc(c.channel) if c.channel else "<i>未标注</i>"}</td>'
+            f'<td data-label="状态">{_status_tag(s.status, s.days_left)}</td>'
             "</tr>"
         )
     return (
@@ -249,8 +271,9 @@ def render_html(report: Report) -> str:
         points_html = f'<div class="card"><div class="kv">{"".join(pt_rows)}</div>'
         if report.mall_products:
             rows = "".join(
-                f"<tr><td>{_esc(m.get('name'))}</td><td>{_esc(m.get('point'))} 分</td>"
-                f"<td>{_esc(m.get('down_time') or '到期信息未提供')}</td></tr>"
+                f'<tr><td data-label="可兑换">{_esc(m.get("name"))}</td>'
+                f'<td data-label="所需积分">{_esc(m.get("point"))} 分</td>'
+                f'<td data-label="兑换截止">{_esc(m.get("down_time") or "到期信息未提供")}</td></tr>'
                 for m in report.mall_products
             )
             points_html += (
